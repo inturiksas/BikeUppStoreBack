@@ -1,16 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns="http://java.sun.com/xml/ns/javaee"
-xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
 	<servlet>
 		<servlet-name>BikuppStore_Bakcend</servlet-name>
-		<servlet-class>us.inturik.bikeuppstore.BikuppStore_BakcendServlet</servlet-class>
+		<servlet-class>us.inturik.bikeuppstore.CTRL.BikuppStore_BakcendServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>BikuppStore_Bakcend</servlet-name>
-		<url-pattern>/bikuppstore_bakcend</url-pattern>
+		<url-pattern>/ctrl/bikuppstore_bakcend</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>CrearTienda</servlet-name>
+		<servlet-class>us.inturik.bikeuppstore.CTRL.CrearTiendaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CrearTienda</servlet-name>
+		<url-pattern>/ctrl/crearTienda</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>VerificarTienda</servlet-name>
+		<servlet-class>us.inturik.bikeuppstore.CTRL.VerificarTiendaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VerificarTienda</servlet-name>
+		<url-pattern>/ctrl/verificarTienda</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>VerificarCliente</servlet-name>
+		<servlet-class>us.inturik.bikeuppstore.CTRL.VerificarClienteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VerificarCliente</servlet-name>
+		<url-pattern>/ctrl/verificarCliente</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ConsultarClienteTienda</servlet-name>
+		<servlet-class>us.inturik.bikeuppstore.CTRL.ConsultarClienteTiendaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConsultarClienteTienda</servlet-name>
+		<url-pattern>/ctrl/consultarClienteTienda</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>IngresarCliente</servlet-name>
+		<servlet-class>us.inturik.bikeuppstore.CTRL.IngresarClienteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IngresarCliente</servlet-name>
+		<url-pattern>/ctrl/ingresarCliente</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ConsultarClientesTienda</servlet-name>
+		<servlet-class>us.inturik.bikeuppstore.CTRL.ConsultarClientesTiendaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConsultarClientesTienda</servlet-name>
+		<url-pattern>/consultarClientesTienda</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
