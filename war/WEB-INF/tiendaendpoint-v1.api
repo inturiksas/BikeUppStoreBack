@@ -43,6 +43,43 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
+    "tiendaendpoint.verificarTienda" : {
+      "path" : "verificarTienda",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "us.inturik.bikeuppstore.EP.TiendaEndpoint.verificarTienda",
+      "request" : {
+        "parameters" : {
+          "idTransaction" : {
+            "type" : "string",
+            "required" : true
+          },
+          "user" : {
+            "type" : "string",
+            "required" : true
+          },
+          "application" : {
+            "type" : "string",
+            "required" : true
+          },
+          "login" : {
+            "type" : "string",
+            "required" : true
+          },
+          "password" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "tiendaendpoint.consultarTiendas" : {
       "path" : "consultarTiendas",
       "httpMethod" : "GET",
@@ -166,6 +203,18 @@
           }
         }
       },
+      "MsgVerificarTiendaResp" : {
+        "id" : "MsgVerificarTiendaResp",
+        "type" : "object",
+        "properties" : {
+          "contextResponse" : {
+            "$ref" : "ContextResponseDTO"
+          },
+          "tienda" : {
+            "$ref" : "TiendaDTO"
+          }
+        }
+      },
       "MsgConsultarTiendasResp" : {
         "id" : "MsgConsultarTiendasResp",
         "type" : "object",
@@ -189,6 +238,11 @@
         },
         "response" : {
           "$ref" : "MsgCrearTiendaResp"
+        }
+      },
+      "us.inturik.bikeuppstore.EP.TiendaEndpoint.verificarTienda" : {
+        "response" : {
+          "$ref" : "MsgVerificarTiendaResp"
         }
       },
       "us.inturik.bikeuppstore.EP.TiendaEndpoint.consultarTiendas" : {

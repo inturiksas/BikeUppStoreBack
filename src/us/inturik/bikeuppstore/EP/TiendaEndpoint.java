@@ -9,6 +9,8 @@ import us.inturik.bikeuppstore.MSG.MsgConsultarTiendasResp;
 import us.inturik.bikeuppstore.MSG.MsgConsultarTiendasSol;
 import us.inturik.bikeuppstore.MSG.MsgCrearTiendaResp;
 import us.inturik.bikeuppstore.MSG.MsgCrearTiendaSol;
+import us.inturik.bikeuppstore.MSG.MsgVerificarTiendaResp;
+import us.inturik.bikeuppstore.MSG.MsgVerificarTiendaSol;
 import us.inturik.bikeuppstore.adaptador.TiendaAdaptador;
 
 import com.google.api.server.spi.config.Api;
@@ -19,6 +21,36 @@ import com.google.api.server.spi.config.Named;
 
 @Api(name = "tiendaendpoint", namespace = @ApiNamespace(ownerDomain = "bikeuppstore.inturik.us", ownerName = "bikeuppstore.inturik.us", packagePath = "inturik.endpoints"), version = "v1")
 public class TiendaEndpoint {
+
+	@ApiMethod(name = "verificarTienda", path = "verificarTienda", httpMethod = HttpMethod.GET)
+	public MsgVerificarTiendaResp verificarTienda(
+			@Named("idTransaction") String idTransaction,
+			@Named("user") String user,
+			@Named("application") String application,
+			// los del metodo
+			@Named("login") String login, @Named("password") String password)
+			throws Exception {
+		MsgVerificarTiendaResp msgResponse = new MsgVerificarTiendaResp();
+		ContextResponseDTO contextResponse = UtilContext
+				.getFillContextResponseDTOBasic(idTransaction);
+
+		msgResponse.setContextResponse(contextResponse);
+		try {
+			TiendaLogica tiendaLog = new TiendaLogica();
+			TiendaAdaptador objTiendaAdpatador = new TiendaAdaptador();
+			Tienda tienda;
+			tienda = tiendaLog.verificarTienda(login, password);
+			msgResponse.setTienda(objTiendaAdpatador.transformDTO(tienda));
+
+		} catch (Exception e) {
+			msgResponse.getContextResponse().setTransactionState(false);
+			// Error.SendError(e.getMessage());
+			throw e;
+		}
+
+		return msgResponse;
+
+	}
 
 	@ApiMethod(name = "crearTiendas", path = "crearTiendas", httpMethod = HttpMethod.POST)
 	public MsgCrearTiendaResp crearTienda(MsgCrearTiendaSol msgCrearTiendaSol)
