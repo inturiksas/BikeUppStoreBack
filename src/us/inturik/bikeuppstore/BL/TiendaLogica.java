@@ -12,8 +12,9 @@ public class TiendaLogica implements TiendaST {
 
 	public TiendaLogica() {
 		// TODO Auto-generated constructor stub
-		dao = SimpleDatastoreServiceFactory.getSimpleDatastoreService().getDAO(
-				TiendaDAO.class);
+		dao = new TiendaDAO();
+		SimpleDatastoreServiceFactory.getSimpleDatastoreService().registerDAO(
+				dao);
 
 	}
 
@@ -24,9 +25,16 @@ public class TiendaLogica implements TiendaST {
 	}
 
 	@Override
-	public boolean crearTienda(Tienda objTienda) {
+	public void crearTienda(List<Tienda> lstTienda) {
 		// TODO Auto-generated method stub
-		return dao.crearTienda(objTienda);
+		if (!lstTienda.isEmpty()) {
+			for (Tienda tienda : lstTienda) {
+				dao.crearTienda(tienda);
+
+			}
+
+		}
+
 	}
 
 	@Override

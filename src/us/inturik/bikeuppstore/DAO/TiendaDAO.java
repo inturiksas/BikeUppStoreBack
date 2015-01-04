@@ -21,9 +21,7 @@ import com.google.appengine.api.datastore.Entity;
 public class TiendaDAO extends DAO<Tienda> {
 	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 	// getting a DAO instance
-	private TiendaDAO dao = SimpleDatastoreServiceFactory
-			.getSimpleDatastoreService().getDAO(TiendaDAO.class);
-
+	
 	public TiendaDAO() {
 		super(Tienda.class);
 		// TODO Auto-generated constructor stub
@@ -36,7 +34,7 @@ public class TiendaDAO extends DAO<Tienda> {
 	 */
 
 	public List<Tienda> getTiendas() {
-		return dao.getAll();
+		return this.getAll();
 	}
 
 	/**
@@ -49,12 +47,23 @@ public class TiendaDAO extends DAO<Tienda> {
 		boolean bGrabo = false;
 		try {
 			// for faster, asynchronous update: dao.updateOrPersistAsync(u);
-			dao.updateOrPersistAsync(objTienda);
+			this.updateOrPersistAsync(objTienda);
 			bGrabo = true;
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		return bGrabo;
+	}
+
+	/**
+	 * @metodo cambiarEstadoTienda: Permie cambiar el estado de una tienda
+	 *         dentro del sistema
+	 * @param int idTienda, boolena estado
+	 * @return N/a
+	 */
+	public void cambiarEstadoTienda(String idTienda, Integer estado) {
+		Tienda objTienda = this.findById(idTienda);
+		objTienda.ESTADO.set(estado);
 	}
 
 	/**

@@ -7,7 +7,7 @@ import us.inturik.bikeuppstore.EB.Tienda;
 public interface TiendaST {
 	public List<Tienda> getTiendas();
 
-	public boolean crearTienda(Tienda objTienda);
+	public void crearTienda(List<Tienda> objTienda);
 
 	public Tienda verificarTienda(String login, String password);
 
