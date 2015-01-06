@@ -24,9 +24,12 @@ public class ClienteDAO extends DAO<Cliente> {
 		super(Cliente.class);
 		// TODO Auto-generated constructor stub
 	}
+
 	/**
-	 * @metodo adicionarCliente: Permite adicionar la información de un cliente a una tienda.
-	 * @param Cliente objCliente
+	 * @metodo adicionarCliente: Permite adicionar la información de un cliente
+	 *         a una tienda.
+	 * @param Cliente
+	 *            objCliente
 	 * @return boolean
 	 */
 	public boolean adicionarCliente(Cliente objCliente) {
@@ -47,12 +50,13 @@ public class ClienteDAO extends DAO<Cliente> {
 	}
 
 	/**
-	 * @metodo getClienteTienda: Permite consultar la información de un cliente deuna tienda dentro del sistema.
-	 * @param cedula (String) ; idTienda (int)
+	 * @metodo getClienteTienda: Permite consultar la información de un cliente
+	 *         deuna tienda dentro del sistema.
+	 * @param cedula
+	 *            (String) ; idTienda (int)
 	 * @return Cliente
 	 */
-	// Permite consultar la información de un cliente deuna tienda dentro del
-	// sistema.
+
 	public Cliente getClienteTienda(String cedula, int idTienda) {
 		Cliente objCliente = null;
 		// Flitro de cedula
@@ -95,8 +99,10 @@ public class ClienteDAO extends DAO<Cliente> {
 		}
 		return objCliente;
 	}
+
 	/**
-	 * @metodo getClientesTienda: Permite consultar todos los clientes de la tienda.
+	 * @metodo getClientesTienda: Permite consultar todos los clientes de la
+	 *         tienda.
 	 * @param int idTienda
 	 * @return List<Cliente>
 	 */

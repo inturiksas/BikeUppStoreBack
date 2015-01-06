@@ -43,4 +43,11 @@ public class TiendaLogica implements TiendaST {
 		return dao.verificarTienda(login, password);
 	}
 
+	@Override
+	public Tienda cambiarEstadoTienda(String idTienda, Integer estado) {
+		// TODO Auto-generated method stub
+		return dao.cambiarEstadoTienda(idTienda, estado);
+
+	}
+
 }

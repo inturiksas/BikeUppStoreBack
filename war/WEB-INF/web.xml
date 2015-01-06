@@ -63,7 +63,7 @@
   <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
   <init-param>
    <param-name>services</param-name>
-   <param-value>us.inturik.bikeuppstore.EP.TiendaEndpoint</param-value>
+   <param-value>us.inturik.bikeuppstore.EP.ClienteEndpoint,us.inturik.bikeuppstore.EP.TiendaEndpoint</param-value>
   </init-param>
  </servlet>
  <servlet-mapping>

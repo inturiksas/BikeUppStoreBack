@@ -80,6 +80,43 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
+    "tiendaendpoint.cambiarEstadoTienda" : {
+      "path" : "cambiarEstadoTienda",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "us.inturik.bikeuppstore.EP.TiendaEndpoint.cambiarEstadoTienda",
+      "request" : {
+        "parameters" : {
+          "idTransaction" : {
+            "type" : "string",
+            "required" : true
+          },
+          "user" : {
+            "type" : "string",
+            "required" : true
+          },
+          "application" : {
+            "type" : "string",
+            "required" : true
+          },
+          "idtienda" : {
+            "type" : "string",
+            "required" : true
+          },
+          "estado" : {
+            "type" : "int32",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "tiendaendpoint.consultarTiendas" : {
       "path" : "consultarTiendas",
       "httpMethod" : "GET",
@@ -215,6 +252,21 @@
           }
         }
       },
+      "MsgCambiarEstadoTiendaResp" : {
+        "id" : "MsgCambiarEstadoTiendaResp",
+        "type" : "object",
+        "properties" : {
+          "contextoResp" : {
+            "$ref" : "ContextResponseDTO"
+          },
+          "objTiendaDTO" : {
+            "$ref" : "TiendaDTO"
+          },
+          "objTiendasDTO" : {
+            "$ref" : "TiendaDTO"
+          }
+        }
+      },
       "MsgConsultarTiendasResp" : {
         "id" : "MsgConsultarTiendasResp",
         "type" : "object",
@@ -243,6 +295,11 @@
       "us.inturik.bikeuppstore.EP.TiendaEndpoint.verificarTienda" : {
         "response" : {
           "$ref" : "MsgVerificarTiendaResp"
+        }
+      },
+      "us.inturik.bikeuppstore.EP.TiendaEndpoint.cambiarEstadoTienda" : {
+        "response" : {
+          "$ref" : "MsgCambiarEstadoTiendaResp"
         }
       },
       "us.inturik.bikeuppstore.EP.TiendaEndpoint.consultarTiendas" : {

@@ -5,6 +5,11 @@ public class ClienteDTO {
 	public Integer id;
 	public String cedula;
 	public String nombre;
+	public String telefono;
+	public String direccion;
+	public String peso;
+	private String email;
+	private Integer idtienda;
 
 	public Integer getId() {
 		return id;
@@ -69,11 +74,5 @@ public class ClienteDTO {
 	public void setIdtienda(Integer idtienda) {
 		this.idtienda = idtienda;
 	}
-
-	public String telefono;
-	public String direccion;
-	public String peso;
-	private String email;
-	private Integer idtienda;
 
 }

@@ -20,8 +20,9 @@ import com.google.appengine.api.datastore.Entity;
 
 public class TiendaDAO extends DAO<Tienda> {
 	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+
 	// getting a DAO instance
-	
+
 	public TiendaDAO() {
 		super(Tienda.class);
 		// TODO Auto-generated constructor stub
@@ -61,9 +62,11 @@ public class TiendaDAO extends DAO<Tienda> {
 	 * @param int idTienda, boolena estado
 	 * @return N/a
 	 */
-	public void cambiarEstadoTienda(String idTienda, Integer estado) {
+	public Tienda cambiarEstadoTienda(String idTienda, Integer estado) {
 		Tienda objTienda = this.findById(idTienda);
 		objTienda.ESTADO.set(estado);
+		this.updateOrPersist(objTienda);
+		return objTienda;
 	}
 
 	/**

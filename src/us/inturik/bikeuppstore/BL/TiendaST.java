@@ -11,4 +11,6 @@ public interface TiendaST {
 
 	public Tienda verificarTienda(String login, String password);
 
+	public Tienda cambiarEstadoTienda(String idTienda, Integer estado);
+
 }
