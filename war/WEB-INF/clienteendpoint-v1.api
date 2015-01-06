@@ -1,0 +1,268 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://root-clover-809.appspot.com/_ah/api",
+  "name" : "clienteendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://root-clover-809.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "bikeuppstore.inturik.us",
+  "ownerName" : "bikeuppstore.inturik.us",
+  "packagePath" : "inturik.endpoints",
+  "methods" : {
+    "clienteendpoint.getClienteTienda" : {
+      "path" : "getClienteTienda",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "us.inturik.bikeuppstore.EP.ClienteEndpoint.getClienteTienda",
+      "request" : {
+        "parameters" : {
+          "idTransaction" : {
+            "type" : "string",
+            "required" : true
+          },
+          "user" : {
+            "type" : "string",
+            "required" : true
+          },
+          "application" : {
+            "type" : "string",
+            "required" : true
+          },
+          "idtienda" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "cedula" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "clienteendpoint.adicionarCliente" : {
+      "path" : "adicionarCliente",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "us.inturik.bikeuppstore.EP.ClienteEndpoint.getAdicionarCliente",
+      "request" : {
+        "parameters" : {
+          "idTransaction" : {
+            "type" : "string",
+            "required" : true
+          },
+          "user" : {
+            "type" : "string",
+            "required" : true
+          },
+          "application" : {
+            "type" : "string",
+            "required" : true
+          },
+          "id" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "cedula" : {
+            "type" : "string",
+            "required" : true
+          },
+          "nombre" : {
+            "type" : "string",
+            "required" : true
+          },
+          "telefono" : {
+            "type" : "string",
+            "required" : true
+          },
+          "direccion" : {
+            "type" : "string",
+            "required" : true
+          },
+          "peso" : {
+            "type" : "string",
+            "required" : true
+          },
+          "email" : {
+            "type" : "string",
+            "required" : true
+          },
+          "idtienda" : {
+            "type" : "int32",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "clienteendpoint.getClientesTienda" : {
+      "path" : "getClientesTienda",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "us.inturik.bikeuppstore.EP.ClienteEndpoint.getClientesTienda",
+      "request" : {
+        "parameters" : {
+          "idTransaction" : {
+            "type" : "string",
+            "required" : true
+          },
+          "user" : {
+            "type" : "string",
+            "required" : true
+          },
+          "application" : {
+            "type" : "string",
+            "required" : true
+          },
+          "idtienda" : {
+            "type" : "int32",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "MsgConsultarClienteTiendaResp" : {
+        "id" : "MsgConsultarClienteTiendaResp",
+        "type" : "object",
+        "properties" : {
+          "contextoResp" : {
+            "$ref" : "ContextResponseDTO"
+          },
+          "clienteDTO" : {
+            "$ref" : "ClienteDTO"
+          }
+        }
+      },
+      "ContextResponseDTO" : {
+        "id" : "ContextResponseDTO",
+        "type" : "object",
+        "properties" : {
+          "transactionDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "transactionState" : {
+            "type" : "boolean"
+          },
+          "idTransaccion" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ClienteDTO" : {
+        "id" : "ClienteDTO",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer"
+          },
+          "cedula" : {
+            "type" : "string"
+          },
+          "nombre" : {
+            "type" : "string"
+          },
+          "telefono" : {
+            "type" : "string"
+          },
+          "direccion" : {
+            "type" : "string"
+          },
+          "peso" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string"
+          },
+          "idtienda" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "MsgAdicionarClienteResp" : {
+        "id" : "MsgAdicionarClienteResp",
+        "type" : "object",
+        "properties" : {
+          "contextoResp" : {
+            "$ref" : "ContextResponseDTO"
+          },
+          "adiciono" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "MsgConsultarClientesTiendaResp" : {
+        "id" : "MsgConsultarClientesTiendaResp",
+        "type" : "object",
+        "properties" : {
+          "contextoResp" : {
+            "$ref" : "ContextResponseDTO"
+          },
+          "lstClientesDTO" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "ClienteDTO"
+            }
+          }
+        }
+      }
+    },
+    "methods" : {
+      "us.inturik.bikeuppstore.EP.ClienteEndpoint.getClienteTienda" : {
+        "response" : {
+          "$ref" : "MsgConsultarClienteTiendaResp"
+        }
+      },
+      "us.inturik.bikeuppstore.EP.ClienteEndpoint.getAdicionarCliente" : {
+        "response" : {
+          "$ref" : "MsgAdicionarClienteResp"
+        }
+      },
+      "us.inturik.bikeuppstore.EP.ClienteEndpoint.getClientesTienda" : {
+        "response" : {
+          "$ref" : "MsgConsultarClientesTiendaResp"
+        }
+      }
+    }
+  }
+}
