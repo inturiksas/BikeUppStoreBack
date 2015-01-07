@@ -1,0 +1,233 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://root-clover-809.appspot.com/_ah/api",
+  "name" : "mantenimientoendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://root-clover-809.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "bikeuppstore.inturik.us",
+  "ownerName" : "bikeuppstore.inturik.us",
+  "packagePath" : "inturik.endpoints",
+  "methods" : {
+    "mantenimientoendpoint.crearMantenimiento" : {
+      "path" : "crearMantenimiento",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "us.inturik.bikeuppstore.EP.MantenimientoEndpoint.crearMantenimiento",
+      "request" : {
+        "parameters" : {
+          "idTransaction" : {
+            "type" : "string",
+            "required" : true
+          },
+          "user" : {
+            "type" : "string",
+            "required" : true
+          },
+          "application" : {
+            "type" : "string",
+            "required" : true
+          },
+          "id" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "estado" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "fecha_ingreso" : {
+            "type" : "string",
+            "required" : true
+          },
+          "fecha_salida" : {
+            "type" : "string",
+            "required" : true
+          },
+          "recibido" : {
+            "type" : "string",
+            "required" : true
+          },
+          "valor_mo" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "idtienda" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "idcliente" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "idarticulo" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "valor_man_preventivo" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "valor_man_general" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "valor_man_susdel_general" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "valor_man_susdel_pp" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "valor_man_susdel_correctivo" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "valor_man_sustra_general" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "valor_man_sustra_pp" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "valor_man_sustra_correctivo" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "valor_man_bujes" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "total_partes" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "total_mantenimiento" : {
+            "type" : "int32",
+            "required" : true
+          },
+          "total" : {
+            "type" : "int32",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mantenimientoendpoint.cerrarMantenimiento" : {
+      "path" : "cerrarMantenimiento",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "us.inturik.bikeuppstore.EP.MantenimientoEndpoint.cerrarMantenimiento",
+      "request" : {
+        "parameters" : {
+          "idTransaction" : {
+            "type" : "string",
+            "required" : true
+          },
+          "user" : {
+            "type" : "string",
+            "required" : true
+          },
+          "application" : {
+            "type" : "string",
+            "required" : true
+          },
+          "idmantenimiento" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "MsgCrearMantenimientoResp" : {
+        "id" : "MsgCrearMantenimientoResp",
+        "type" : "object",
+        "properties" : {
+          "contextResponse" : {
+            "$ref" : "ContextResponseDTO"
+          },
+          "creado" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "ContextResponseDTO" : {
+        "id" : "ContextResponseDTO",
+        "type" : "object",
+        "properties" : {
+          "transactionDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "transactionState" : {
+            "type" : "boolean"
+          },
+          "idTransaccion" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MsgCerrarMantenimientoResp" : {
+        "id" : "MsgCerrarMantenimientoResp",
+        "type" : "object",
+        "properties" : {
+          "contextResponse" : {
+            "$ref" : "ContextResponseDTO"
+          },
+          "cerrado" : {
+            "type" : "boolean"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "us.inturik.bikeuppstore.EP.MantenimientoEndpoint.crearMantenimiento" : {
+        "response" : {
+          "$ref" : "MsgCrearMantenimientoResp"
+        }
+      },
+      "us.inturik.bikeuppstore.EP.MantenimientoEndpoint.cerrarMantenimiento" : {
+        "response" : {
+          "$ref" : "MsgCerrarMantenimientoResp"
+        }
+      }
+    }
+  }
+}

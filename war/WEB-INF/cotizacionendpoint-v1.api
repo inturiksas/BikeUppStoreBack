@@ -1,0 +1,147 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://root-clover-809.appspot.com/_ah/api",
+  "name" : "cotizacionendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://root-clover-809.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "bikeuppstore.inturik.us",
+  "ownerName" : "bikeuppstore.inturik.us",
+  "packagePath" : "inturik.endpoints",
+  "methods" : {
+    "cotizacionendpoint.autorizarCotizacion" : {
+      "path" : "autorizarCotizacion",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "us.inturik.bikeuppstore.EP.CotizacionEndpoint.autorizarCotizacion",
+      "request" : {
+        "parameters" : {
+          "idTransaction" : {
+            "type" : "string",
+            "required" : true
+          },
+          "user" : {
+            "type" : "string",
+            "required" : true
+          },
+          "application" : {
+            "type" : "string",
+            "required" : true
+          },
+          "idcotizacion" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "cotizacionendpoint.enviarCotizacion" : {
+      "path" : "enviarCotizacion",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "us.inturik.bikeuppstore.EP.CotizacionEndpoint.enviarCotizacion",
+      "request" : {
+        "parameters" : {
+          "idTransaction" : {
+            "type" : "string",
+            "required" : true
+          },
+          "user" : {
+            "type" : "string",
+            "required" : true
+          },
+          "application" : {
+            "type" : "string",
+            "required" : true
+          },
+          "idtienda" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "MsgAutorizarCotizacionResp" : {
+        "id" : "MsgAutorizarCotizacionResp",
+        "type" : "object",
+        "properties" : {
+          "contextResponse" : {
+            "$ref" : "ContextResponseDTO"
+          }
+        }
+      },
+      "ContextResponseDTO" : {
+        "id" : "ContextResponseDTO",
+        "type" : "object",
+        "properties" : {
+          "transactionDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "transactionState" : {
+            "type" : "boolean"
+          },
+          "idTransaccion" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MsgEnviarCotizacionResp" : {
+        "id" : "MsgEnviarCotizacionResp",
+        "type" : "object",
+        "properties" : {
+          "contextResponse" : {
+            "$ref" : "ContextResponseDTO"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "us.inturik.bikeuppstore.EP.CotizacionEndpoint.autorizarCotizacion" : {
+        "response" : {
+          "$ref" : "MsgAutorizarCotizacionResp"
+        }
+      },
+      "us.inturik.bikeuppstore.EP.CotizacionEndpoint.enviarCotizacion" : {
+        "response" : {
+          "$ref" : "MsgEnviarCotizacionResp"
+        }
+      }
+    }
+  }
+}

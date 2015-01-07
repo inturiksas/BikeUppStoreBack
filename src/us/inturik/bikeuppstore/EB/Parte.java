@@ -18,6 +18,7 @@ public class Parte extends DatastoreEntity {
 	public StringProperty CODIGO;
 	public StringProperty NOMBRE;
 	public IntegerProperty VALOR;
+	public IntegerProperty IDMANTENIMIENTO;
 
 	@Override
 	protected void config() {
@@ -26,6 +27,7 @@ public class Parte extends DatastoreEntity {
 		CODIGO = new STRING(this).build();
 		NOMBRE = new STRING(this).build();
 		VALOR = new INT(this).build();
+		IDMANTENIMIENTO = new INT(this).build();
 	}
 
 }

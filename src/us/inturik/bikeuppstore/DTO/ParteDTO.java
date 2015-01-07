@@ -6,6 +6,15 @@ public class ParteDTO {
 	public String codigo;
 	public Integer valor;
 	public String nombre;
+	public Integer idMantenimiento;
+
+	public Integer getIdMantenimiento() {
+		return idMantenimiento;
+	}
+
+	public void setIdMantenimiento(Integer idMantenimiento) {
+		this.idMantenimiento = idMantenimiento;
+	}
 
 	public Integer getId() {
 		return id;
